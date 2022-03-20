@@ -10,11 +10,12 @@ const Product = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{title.slice(0, 10)}</h5>
                     <p className="card-text">{description.slice(0, 50)}</p>
-                    <div>
+                    <div className='my-3'>
                         <button onClick={props.increase} className='btn btn-success mx-2'>Add</button>
                         <button className='btn btn-danger mx-2'>Delete</button>
-                        <Btn product={props.product}></Btn>
+
                     </div>
+                    <Btn product={props.product}></Btn>
                 </div>
             </div>
         </div >

@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import "./Btn.css";
 
 const Btn = (props) => {
-    console.log(props);
+    const { title, image, description } = props.product;
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div>
-            <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Details
-            </button>
+            <>
+                <Button variant="primary" onClick={handleShow}>
+                    Details
+                </Button>
 
-            <div className='modal fade' id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className='modal-dialog'>
-                    <div className='modal-content'>
-                        <div className='modal-header'>
-                            <h5 className='modal-title' id="exampleModalLabel">{props.product.title}</h5>
-                            <button type="button" className='btn-close' data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div >
-                        <div className='modal-body'>
-                            {props.product.description}
-                        </div>
-                        <div className='modal-footer'>
-                            <button type="button" className='btn btn-secondary' data-bs-dismiss="modal">Close</button>
-                            <button type="button" className='btn btn-primary'> Save changes</button >
-                        </div >
-                    </div >
-                </div >
-            </div >
-        </div >
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{title}</Modal.Title>
+
+
+                    </Modal.Header>
+                    <Modal.Body>
+                        <img id="img" src={image} alt="" />
+                        {description}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
+        </div>
     );
 };
 
