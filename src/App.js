@@ -3,6 +3,7 @@ import Menubar from './components/Menubar/Menubar';
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import Products from './components/Products/Products';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Menubar count={count}></Menubar>
+      <Products increase={increaseCount}></Products>
     </div>
   );
 }
