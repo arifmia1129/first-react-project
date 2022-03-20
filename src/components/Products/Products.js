@@ -12,7 +12,7 @@ const Products = (props) => {
         <div className='container'>
             <div className='row'>
                 {
-                    products.map(product => <Product increase={props.increase} product={product}></Product>)
+                    products.map(product => <Product key={product.id} increase={props.increase} product={product}></Product>)
                 }
             </div>
         </div>
